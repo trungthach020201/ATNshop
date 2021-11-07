@@ -59,6 +59,12 @@
              </thead>
              <tbody>
             <!--delete-->
+            <?php
+                $No = 1;
+                $result = pg_query($conn, "SELECT * FROM public.account");
+                while($row = pg_fetch_array($result,NULL ,PGSQL_ASSOC))
+                {
+                ?>  
 			<tr>
               <td class="cotCheckBox"><?php echo $No; ?></td>
               <td><?php echo $row["cusname"]; ?></td>
