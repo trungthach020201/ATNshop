@@ -14,10 +14,9 @@
  <table id="cart" class="table table-hover table-condensed"> 
   <thead> 
    <tr> 
-    <th style="width:20%">Shop</th> 
-    <th style="width:20%">Address</th> 
-    <th style="width:3%">Total quantity sale</th> 
-    <th style="width:18%" class="text-center">Total</th>
+    <th style="width:30%">Shop</th> 
+
+    <th style="width:18%" class="text-center">Total revanue</th>
    </tr> 
   </thead> 
   <tbody>
@@ -30,25 +29,54 @@
             </div> 
             </div> 
         </td> 
-        <td data-th="Price">200.000 VND</td> 
-        <td data-th="Quantity"><input class="form-control text-center" value="1" type="number">
-        </td> 
-        <td data-th="Subtotal" class="text-center">200.000 VND</td> 
-    
+        <td data-th="Subtotal" class="text-center">200.000.000 VND</td> 
     </tr> 
 
+
+    <tr> 
+        <td data-th="Product"> 
+            <div class="row"> 
+            <div class="col-sm-10"> 
+            <h4 class="nomargin">ATN HoChiMinh Shop</h4> 
+            <p>360, Nguyen Van Linh street, Phu Nhuan , HCM city</p> 
+            </div> 
+            </div> 
+        </td> 
+        <td data-th="Subtotal" class="text-center">500.000.000 VND</td> 
+    </tr> 
+
+    <tr> 
+        <td data-th="Product"> 
+            <div class="row"> 
+            <div class="col-sm-10"> 
+            <h4 class="nomargin">ATN HaNoi Shop</h4> 
+            <p>360B, 30/4 street, Hoang Kiem, Hanoi</p> 
+            </div> 
+            </div> 
+        </td> 
+        <td data-th="Subtotal" class="text-center">300.000.000 VND</td> 
+    </tr> 
+
+        <tr> 
+        <td data-th="Product"> 
+            <div class="row"> 
+            <div class="col-sm-10"> 
+            <h4 class="nomargin">ATN DaNang Shop</h4> 
+            <p>360A, De Tham  street, Son Tra, DaNang</p> 
+            </div> 
+            </div> 
+        </td> 
+        <td data-th="Subtotal" class="text-center">100.000.000 VND</td> 
+    </tr> 
+  
   </tbody>
-  <tfoot> 
-   <tr class="visible-xs"> 
-    <td class="text-center"><strong>Total 200.000 VND</strong>
-    </td> 
-   </tr> 
+  <tfoot>  
    <tr> 
-    <td><a href="?page=index" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continute to buy</a>
+    <td><a href="?page=index" class="btn btn-warning"><i class="fa fa-angle-left"></i> Back</a>
     </td> 
-    <td class="hidden-xs text-center"><strong>Total 500.000 VND</strong>
+    <td class="hidden-xs text-center"><strong>Total 11.000.000.000 VND</strong>
     </td> 
-    <td><a href="#" class="btn btn-success btn-block">Payment <i class="fa fa-angle-right"></i></a>
+    <td><a href="#" class="btn btn-success btn-block">Ok <i class="fa fa-angle-right"></i></a>
     </td> 
    </tr> 
   </tfoot> 
