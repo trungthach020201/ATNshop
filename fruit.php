@@ -39,17 +39,6 @@
             {
             ?>
 
-        <?php
-            include_once("connection.php");
-                if (isset($_GET["function"]) == "del")
-            {
-                if(isset($_GET["id"]))
-                    {
-                        $id = $_GET["id"];
-                        pg_query($conn, "DELETE FROM category WHERE idcate='$id'");
-                    }
-            }
-        ?>
 <form name="frm" method="post" action="">
         <h1 align="center">Manage Customer</h1>
         <p>
@@ -61,28 +50,22 @@
                 <tr>
                     <th><strong>No.</strong></th>
                     <th><strong>Fullname</strong></th>
-                    <th><strong>User Name</strong></th>
+                    <th><strong>Adress</strong></th>
                     <th><strong>Email</strong></th>
                     <th><strong>Phone</strong></th>
+                    <th><strong>Username</strong></th>
                   
                 </tr>
              </thead>
              <tbody>
             <!--delete-->
-        
-                <?php
-                $No = 1;
-                $result = pg_query($conn, "SELECT * FROM public.account");
-                while($row = pg_fetch_array($result,NULL ,PGSQL_ASSOC))
-                {
-                ?>   
 			<tr>
               <td class="cotCheckBox"><?php echo $No; ?></td>
               <td><?php echo $row["cusname"]; ?></td>
-              <td><?php echo $row["username"]; ?></td>
+              <td><?php echo $row["address"]; ?></td>
               <td><?php echo $row["email"]; ?></td>
               <td><?php echo $row["telephone"]; ?></td>
-              
+              <td><?php echo $row["username"]; ?></td>
             </tr>
             <?php
                 $No++;

@@ -49,7 +49,7 @@
                </div>
                <div id="sear">
                     <li class="nav-item">
-                    <a class="nav-link" href="?page=fruit">Manage Account</a>
+                    <a class="nav-link" href="?page=fruit">Manage Customer</a>
                     </li>
                </div>
                <div id="sear">
