@@ -9,47 +9,102 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="responsive.css">
-    <title>NTdisbutor</title>
+    <title>ATNshop</title>
     <script src="js/jquery-3.2.0.min.js"></script>
     <script src="js/jquery.dataTables.min.js"></script>
     <script src="js/dataTables.bootstrap.min.js"></script>
     
   </head>
     <body>
-    <div class="container">
-                <div class="col-md-12">
-                    <div class="latest-product">
-                        <div class="product-carousel"> 
-                        <div class="normal-wrapper">
-            <div class="category-1">
-                <h1 class="no-margin-top"><b>|</b> Account off User</h1>
-            </div>
-                           <?php
-						  include_once("connection.php");
-		  				   	$result = pg_query($conn, "SELECT * FROM public.product where idcate='F01'");
-			
-			                if (!$result) { //add this check.
-                                die('Invalid query: ' . pg_error($conn));
+    <br>   
+                <script language="javascript">
+                    function deleteConfirm()
+                    {
+                        if (confirm("Are you sure to delete"))
+                            {
+                                return true;
                             }
-		
-			            
-			                while($row = pg_fetch_array($result,NULL, PGSQL_ASSOC)){
-				            ?>
-  
-            <div class="icon-outer">
-                <div class="icon-circle" align="center">
-                <img src="image/<?php echo $row['productimage']?>" width="150" height="150">
-                </div>
-                <h5><a><?php echo  $row['productname']?></a></h5>
-                <p><a>price: <?php echo  $row['price']?> VND/kg</a></p>
-                <button class="btn1 btn-primary" >Add to cart</button>
-            </div>
-                <?php
-                }
-                ?>
+                        else{
+                                return false;
+                            }
+                    }
+                </script>
+        <?php
+            if (!isset($_SESSION['admin'])or $_SESSION['admin']==0)
+            {
+            echo "<script>alert('You are not an adminstrator')</script>";
+            echo '<meta http-equiv="refresh" content="0;URL=?page=index"/>';
+            }
+            else
+            {
+            ?>
 
-        </div>
-    </div>
+        <?php
+            include_once("connection.php");
+                if (isset($_GET["function"]) == "del")
+            {
+                if(isset($_GET["id"]))
+                    {
+                        $id = $_GET["id"];
+                        pg_query($conn, "DELETE FROM category WHERE idcate='$id'");
+                    }
+            }
+        ?>
+<form name="frm" method="post" action="">
+        <h1 align="center">Manage Account</h1>
+        <p>
+        <img src="image/add.png" alt="Add new" width="16" height="16" border="0" /> 
+        <a href="?page=addcate"> Add</a>
+        </p>
+        <table id="tablecategory" class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th><strong>No.</strong></th>
+                    <th><strong>User Name</strong></th>
+                     <th><strong>Password</strong></th>
+                    <th><strong>Edit</strong></th>
+                    <th><strong>Delete</strong></th>
+                </tr>
+             </thead>
+             <tbody>
+            <!--delete-->
+        
+                <?php
+                $No = 1;
+                $result = pg_query($conn, "SELECT * FROM public.account");
+                while($row = pg_fetch_array($result,NULL ,PGSQL_ASSOC))
+                {
+                ?>   
+			<tr>
+              <td class="cotCheckBox"><?php echo $No; ?></td>
+              <td><?php echo $row["username"]; ?></td>
+              <td><?php echo $row["email"]; ?></td>
+              <td><?php echo $row["telephone"]; ?></td>
+              <!-- <td style='text-align:center'> 
+                    <a href="?page=updatecate&&id=<?php echo $row['idcate']; ?>">
+                    <img src='image/edit.png' border='0'  />
+                    </a>
+                </td> -->
+              <td style = 'text-align:center'>
+                    <a href="?page=cate&&function=del&&id=<?php echo $row["idcate"]; ?>" onclick="return deleteConfirm()">
+                        <img src='image/delete.png' border='0'/>
+                    </a>
+              </td>
+            </tr>
+            <?php
+                $No++;
+                }
+            ?>
+        </tbody>
+    </table>  
+               
+                <div class="col-md-12"></div>
+       
+    </form>
+
+    <?php
+    }
+    ?>
 
     </body>
 </html>
