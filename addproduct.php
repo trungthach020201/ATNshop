@@ -55,12 +55,12 @@
 					$sq = "SELECT * from public.product where productid='$id' or productname='$proname'";
 					$result = pg_query($conn, $sq);
 					if (pg_num_rows($result) == 0) {
-						copy($pic['tmp_name'], "./image/" . $pic['name']);
+						copy($pic['tmp_name'], "image/" . $pic['name']);
 						$_filePic = $pic['name'];
-						$sqlstring = "INSERT INTO product (idcate, productid, productname, price, productimage) 
+						$sqlstring = "INSERT INTO public.product (idcate, productid, productname, price, productimage) 
 						VALUES ('$category','$id','$proname','$price','$_filePic')";
 						pg_query($conn, $sqlstring);
-						echo '<meta http-equiv="refresh" content="0;URL=?page=cate"/>';
+						echo '<meta http-equiv="refresh" content="0;URL=?page=fruit"/>';
 					} else {
 						echo "<li>duplicate product</li>";
 					}

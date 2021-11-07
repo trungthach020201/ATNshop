@@ -31,9 +31,8 @@
        				 if (!$result) { //add this check.
                                 die('Invalid query: ' . pg_error($conn));
                             }
-			                while($row = pg_fetch_array($result,NULL, PGSQL_ASSOC)){
-				            ?>
-  
+			    while($row = pg_fetch_array($result,NULL, PGSQL_ASSOC)){
+				?>
             <div class="icon-outer">
                 <div class="icon-circle" align="center">
                 <img src="image/<?php echo $row['productimage']?>" width="150" height="150">
