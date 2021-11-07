@@ -51,19 +51,20 @@
             }
         ?>
 <form name="frm" method="post" action="">
-        <h1 align="center">Manage Account</h1>
+        <h1 align="center">Manage Customer</h1>
         <p>
         <img src="image/add.png" alt="Add new" width="16" height="16" border="0" /> 
-        <a href="?page=addcate"> Add</a>
+        <a href="?page=register"> Add</a>
         </p>
         <table id="tablecategory" class="table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
                 <tr>
                     <th><strong>No.</strong></th>
+                    <th><strong>Fullname</strong></th>
                     <th><strong>User Name</strong></th>
-                     <th><strong>Password</strong></th>
-                    <th><strong>Edit</strong></th>
-                    <th><strong>Delete</strong></th>
+                    <th><strong>Email</strong></th>
+                    <th><strong>Phone</strong></th>
+                  
                 </tr>
              </thead>
              <tbody>
@@ -77,19 +78,11 @@
                 ?>   
 			<tr>
               <td class="cotCheckBox"><?php echo $No; ?></td>
+              <td><?php echo $row["cusname"]; ?></td>
               <td><?php echo $row["username"]; ?></td>
               <td><?php echo $row["email"]; ?></td>
               <td><?php echo $row["telephone"]; ?></td>
-              <!-- <td style='text-align:center'> 
-                    <a href="?page=updatecate&&id=<?php echo $row['idcate']; ?>">
-                    <img src='image/edit.png' border='0'  />
-                    </a>
-                </td> -->
-              <td style = 'text-align:center'>
-                    <a href="?page=cate&&function=del&&id=<?php echo $row["idcate"]; ?>" onclick="return deleteConfirm()">
-                        <img src='image/delete.png' border='0'/>
-                    </a>
-              </td>
+              
             </tr>
             <?php
                 $No++;

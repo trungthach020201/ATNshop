@@ -43,7 +43,7 @@
 <?php
     if (isset($_GET["function"]) == "delproduct") {
         if (isset($_GET["id"])) {
-        $id = $_GET["id"];
+        $id = $s_GET["id"];
         $sq = "SELECT productimage from product WHERE productid='$id'";
         $res = pg_query($conn, $sq);
         $row = pg_fetch_array($res, NULL,PGSQL_ASSOC);
