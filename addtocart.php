@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <?php
     if(!isset($_SESSION['us'])){
-        echo '<script>alert("You must login to access cart");</script>';
+        echo '<script>alert("You must login to access Manage profit");</script>';
         echo '<meta http-equiv="Refresh" content="0;URL=?page=login">';
         }
     else
@@ -14,9 +14,9 @@
  <table id="cart" class="table table-hover table-condensed"> 
   <thead> 
    <tr> 
-    <th style="width:25%"></th> 
-    <th style="width:5%">Price</th> 
-    <th style="width:3%">Quantity</th> 
+    <th style="width:20%">Shop</th> 
+    <th style="width:20%">Address</th> 
+    <th style="width:3%">Total quantity sale</th> 
     <th style="width:18%" class="text-center">Total</th>
    </tr> 
   </thead> 
@@ -24,10 +24,8 @@
       <tr> 
         <td data-th="Product"> 
             <div class="row"> 
-            <div>
-            <h4 class="nomargin">ATN CanTho Shop</h4> 
-            </div> 
             <div class="col-sm-10"> 
+            <h4 class="nomargin">ATN CanTho Shop</h4> 
             <p>360, 30/4 street, Ninh Kieu, Can Tho</p> 
             </div> 
             </div> 
@@ -38,23 +36,9 @@
         <td data-th="Subtotal" class="text-center">200.000 VND</td> 
     
     </tr> 
-  <tr> 
-   <td data-th="Product"> 
-    <div class="row"> 
-     <div class="col-sm-2 hidden-xs"><img src="" alt="Sản phẩm 1" class="img-responsive" width="100">
-     </div> 
-     <div class="col-sm-10"> 
-      <h4 class="nomargin">ATN HaNoi Shop</h4> 
-      <p>580, Cau Giay, Hanoi</p> 
-     </div> 
-    </div> 
-   </td> 
-   <td data-th="Price">300.000 VND</td> 
-   <td data-th="Quantity"><input class="form-control text-center" value="1" type="number">
-   </td> 
-   <td data-th="Subtotal" class="text-center">300.000 VND</td> 
-  </tr> 
-  </tbody><tfoot> 
+
+  </tbody>
+  <tfoot> 
    <tr class="visible-xs"> 
     <td class="text-center"><strong>Total 200.000 VND</strong>
     </td> 
