@@ -172,7 +172,7 @@ else{
                 <img src="image/logo-removebg-preview (2).png" width="70" height="70" />
                 </a>
             </div>
-            <div class="left"> NT distributor Co., Ltd - Vietnam Branch
+            <div class="left"> ATN toy shop Vietnam Co., Ltd - Vietnam Branch
                 <br /> Address: 22A, Duong Quang Dong street, 5 ward ,Tra Vinh City
                 <br /> Tel: 0865894853
             </div>
