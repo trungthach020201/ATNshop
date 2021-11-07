@@ -14,9 +14,9 @@
  <table id="cart" class="table table-hover table-condensed"> 
   <thead> 
    <tr> 
-    <th style="width:30%">Shop</th> 
+    <th style="width:40%">Shop</th> 
 
-    <th style="width:18%" class="text-center">Total revanue</th>
+    <th style="width:10%" class="text-center">Total revenue</th>
    </tr> 
   </thead> 
   <tbody>
