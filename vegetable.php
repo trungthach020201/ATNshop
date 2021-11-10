@@ -44,19 +44,19 @@
     if (isset($_GET["function"]) == "delproduct") {
         if (isset($_GET["id"])) {
         $id = $s_GET["id"];
-        $sq = "SELECT productimage from product WHERE productid='$id'";
+        $sq = "SELECT productimage from public.product WHERE productid='$id'";
         $res = pg_query($conn, $sq);
         $row = pg_fetch_array($res, NULL,PGSQL_ASSOC);
         $filePic = $row['productimage'];
         unlink("image/".$filePic);
-        pg_query($conn, "DELETE FROM product WHERE productid='$id'");
+        pg_query($conn, "DELETE FROM public.product WHERE productid='$id'");
         }
     }
 ?>
 <form name="frm" method="post" action="">
 <h1 align="center">Product Management</h1>
 <p>
-<img src="image/add.png" alt="Addnew" width="16" height="16" border="0"/> <a href="?page=addpro"> Add new
+<img src="image/add.png" alt="Addnew" width="16" height="16" border="0"/> <a href="?page=vegetable"> Add new
 </p>
 <table id="tableproduct" class="table table-striped table-bordered" cellspacing="0" width="100%">
 <thead>

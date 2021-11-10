@@ -45,7 +45,7 @@
                 if(isset($_GET["id"]))
                     {
                         $id = $_GET["id"];
-                        pg_query($conn, "DELETE FROM category WHERE idcate='$id'");
+                        pg_query($conn, "DELETE FROM public.category WHERE idcate='$id'");
                     }
             }
         ?>

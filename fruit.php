@@ -58,7 +58,7 @@
                 </tr>
              </thead>
              <tbody>
-            <!--delete-->
+      
             <?php
                 $No = 1;
                 $result = pg_query($conn, "SELECT * FROM public.account");

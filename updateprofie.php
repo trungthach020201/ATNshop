@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="responsive.css">
-    <title>NTdisbutor</title>
+    <title>ATNshop</title>
 	<script src="js/jquery-3.2.0.min.js"></script>
     <script src="js/jquery.dataTables.min.js"></script>
     <script src="js/dataTables.bootstrap.min.js"></script>
@@ -19,7 +19,7 @@
 //Get custmer information
 $query = "SELECT cusname, address, email, telephone from public.account
 			where username = '" . $_SESSION["us"] . "'";
-$result = pg_query($conn, $query) or die(pg_error($conn));
+$result = pg_query($conn, $query); //or die(pg_error($conn));
 $row = pg_fetch_array($result,NULL, PGSQL_ASSOC);
 
 $us = $_SESSION["us"];
@@ -42,12 +42,12 @@ if (isset($_POST['btnUpdate'])) {
 			$sq = "UPDATE account set cusname='$fullname', address = '$address',
 			telephone='$telephone', password='$pass' WHERE username='" . $_SESSION['us'] . "'";
 
-			pg_query($conn, $sq) or die(pg_error($conn));
+			// pg_query($conn, $sq) or die(pg_error($conn));
 		} else {
 			$sq = "UPDATE account set cusname='$fullname', address = '$address',
 			telephone='$telephone' where username='" . $_SESSION['us'] . "'";
 
-			pg_query($conn, $sq) or die(pg_error($conn));
+			// pg_query($conn, $sq) or die(pg_error($conn));
 		}
 		echo '<meta http-equiv="refresh" content="0;URL=index.php"/>';
 	} else {

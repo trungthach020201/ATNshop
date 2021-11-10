@@ -60,7 +60,7 @@
 						$sqlstring = "INSERT INTO public.product (idcate, productid, productname, price, productimage) 
 						VALUES ('$category','$id','$proname','$price','$_filePic')";
 						pg_query($conn, $sqlstring);
-						echo '<meta http-equiv="refresh" content="0;URL=?page=fruit"/>';
+						echo '<meta http-equiv="refresh" content="0;URL=?page=vegetable"/>';
 					} else {
 						echo "<li>duplicate product</li>";
 					}
@@ -111,7 +111,7 @@
 				<div class="form-group">
 						<div class="col-sm-offset-2 col-sm-10">
 						      <input type="submit"  class="btn btn-primary" name="btnAdd" id="btnAdd" value="Add new"/>
-                                          <input type="button" class="btn btn-primary" name="btnIgnore"  id="btnIgnore" value="Cancle" onclick="window.location='?page=cate'" />	
+                                          <input type="button" class="btn btn-primary" name="btnIgnore"  id="btnIgnore" value="Cancle" onclick="window.location='?page=vegetable'" />	
 						</div>
 				</div>
 			</form>
