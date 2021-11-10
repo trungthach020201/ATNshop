@@ -35,7 +35,7 @@
 		}
 		else{
 			$sq="SELECT * FROM public.category where idcate='$id' or namecate='$name'";
-			$result = pg_query($conn,$sq) or die(pg_error($conn));
+			$result = pg_query($conn,$sq); //or die(pg_error($conn));
 			if(pg_num_rows($result)==0)
 			{
 				pg_query($conn,"INSERT INTO public.category(idcate,namecate,descate) VALUES ('$id','$name','$des')");
