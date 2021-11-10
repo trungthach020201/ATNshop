@@ -84,7 +84,7 @@
         <td><?php echo $row["productid"]; ?></td>
         <td><?php echo $row["productname"]; ?></td>
         <td><?php echo $row["price"]; ?></td>
-        <td><?php echo $row["Namecate"]; ?></td>
+        <td><?php echo $row["namecate"]; ?></td>
         <td align='center' class='cotNutChucNang'>
         <img src='image/<?php echo $row['productimage'] ?>' border='0' width="50" height="50" />
         </td>
