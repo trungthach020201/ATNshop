@@ -61,7 +61,7 @@
       
             <?php
                 $No = 1;
-                $result = pg_query($conn, "SELECT * FROM public.account");
+                $result = pg_query($conn, "SELECT * FROM public.customer");
                 while($row = pg_fetch_array($result,NULL ,PGSQL_ASSOC))
                 {
                 ?>  
