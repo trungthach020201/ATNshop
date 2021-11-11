@@ -52,12 +52,12 @@
     } else {
       include_once("connection.php");
       $pass = md5($pass1);
-      $sq = "SELECT * FROM public.account WHERE username='$us' OR email='$email'";
+      $sq = "SELECT * FROM public.customer WHERE Username='$us' OR email='$email'";
       $res = pg_query($conn, $sq);
       if (pg_num_rows($res) == 0) {
-        pg_query($conn, "INSERT INTO account (username, password, custname, gender, address, telephone, email, cusdate, cusmonth, cusyear,ssn, activecode, state)
+        pg_query($conn, "INSERT INTO customer (Username, Password, CustName, gender, Address, telephone, email, CusDate, CusMonth, CusYear, ActiveCode, state)
             VALUES('$us', '$pass', '$fullname', '$sex', '$address', '$tel', '$email', '$date', 
-            '$month', '$year','', '', 0)");
+            '$month', '$year', '', 0)");
         echo '<meta http-equiv="refresh" content="0;URL=?page=login"/>';
       } else {
         echo "Username or email already exists";
