@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="responsive.css">
-    <title>NTdistributor</title>
+    <title>ATN shop</title>
     <script src="js/jquery-3.2.0.min.js"></script>
     <script src="js/jquery.dataTables.min.js"></script>
     <script src="js/dataTables.bootstrap.min.js"></script>
@@ -62,7 +62,7 @@
             pg_query($conn,"INSERT INTO public.account(username,password,cusname,gender,address,telephone,
             email,cusdate,cusmonth,cusyear,ssn,activecode,state)
             VALUE('$us','$pass','$fullname','$sex','$address','$tel','$email',
-            $date,$month,$year,'','',0)") or die(pg_error($conn));
+            $date,$month,$year,'','',0)"); // or die(pg_error($conn));
             echo '<meta http-equiv="refresh" content="0;URL=?page=login"/>';
         }
         else{
