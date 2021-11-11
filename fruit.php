@@ -67,7 +67,7 @@
                 ?>  
 			<tr>
               <td class="cotCheckBox"><?php echo $No; ?></td>
-              <td><?php echo $row["cusname"]; ?></td>
+              <td><?php echo $row["custname"]; ?></td>
               <td><?php echo $row["address"]; ?></td>
               <td><?php echo $row["email"]; ?></td>
               <td><?php echo $row["telephone"]; ?></td>
