@@ -55,9 +55,9 @@
       $sq = "SELECT * FROM public.account WHERE username='$us' OR email='$email'";
       $res = pg_query($conn, $sq);
       if (pg_num_rows($res) == 0) {
-        pg_query($conn, "INSERT INTO public.account (username, password, custname, gender, address, telephone, email, cusdate, cusmonth, cusyear, activecode, state)
+        pg_query($conn, "INSERT INTO public.account (username, password, custname, gender, address, telephone, email, cusdate, cusmonth, cusyear,ssn, activecode, state)
             VALUES('$us', '$pass', '$fullname', '$sex', '$address', '$tel', '$email', '$date', 
-            '$month', '$year', '', 0)");// or die(pg_error($conn));
+            '$month', '$year','', '', 0)")  or die(pg_error($conn));
         echo '<meta http-equiv="refresh" content="0;URL=?page=login"/>';
       } else {
         echo "Username or email already exists";
