@@ -8,6 +8,8 @@
 </head>
 
 <body>
+ 
+
 
   <?php
   if (isset($_POST['btnRegister'])) {
@@ -48,9 +50,9 @@
     if ($err != "") {
       echo $err;
     } else {
-      include_once("conection.php");
+      include_once("connection.php");
       $pass = md5($pass1);
-      $sq = "SELECT * FROM account WHERE username='$us' OR email='$email'";
+      $sq = "SELECT * FROM public.account WHERE username='$us' OR email='$email'";
       $res = pg_query($conn, $sq);
       if (pg_num_rows($res) == 0) {
         pg_query($conn, "INSERT INTO account (username, password, custname, gender, address, telephone, email, cusdate, cusmonth, cusyear,ssn, activecode, state)
@@ -168,7 +170,7 @@
       <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
           <input type="submit" class="btn btn-primary" name="btnRegister" id="btnRegister" value="Register" />
-          <input type="submit" class="btn btn-primary" name="btnCancel" id="btnCancel" value="Cancel" />
+
         </div>
       </div>
     </form>
