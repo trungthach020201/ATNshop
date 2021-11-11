@@ -42,12 +42,12 @@ if (isset($_POST['btnUpdate'])) {
 			$sq = "UPDATE account set cusname='$fullname', address = '$address',
 			telephone='$telephone', password='$pass' WHERE username='" . $_SESSION['us'] . "'";
 
-			// pg_query($conn, $sq) or die(pg_error($conn));
+			pg_query($conn, $sq);// or die(pg_error($conn));
 		} else {
 			$sq = "UPDATE account set cusname='$fullname', address = '$address',
 			telephone='$telephone' where username='" . $_SESSION['us'] . "'";
 
-			// pg_query($conn, $sq) or die(pg_error($conn));
+			pg_query($conn, $sq);// or die(pg_error($conn));
 		}
 		echo '<meta http-equiv="refresh" content="0;URL=index.php"/>';
 	} else {

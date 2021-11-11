@@ -56,7 +56,7 @@
 <form name="frm" method="post" action="">
 <h1 align="center">Product Management</h1>
 <p>
-<img src="image/add.png" alt="Addnew" width="16" height="16" border="0"/> <a href="?page=vegetable"> Add new
+<img src="image/add.png" alt="Addnew" width="16" height="16" border="0"/> <a href="?page=addpro"> Add new
 </p>
 <table id="tableproduct" class="table table-striped table-bordered" cellspacing="0" width="100%">
 <thead>
