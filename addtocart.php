@@ -68,7 +68,7 @@
             <td><?php echo $row["address"]; ?></td>
             <td><?php echo $row["phone"]; ?></td>
             <td align='center' class='cotNutChucNang'><a href="?page=updateshop&&id=<?php echo $row["shop_id"]; ?>"><img src='./image/edit.png' border='0' width="30" height="30" /></a></td>
-            <td align='center' class='cotNutChucNang'><a href="?page=shops_management&&function=del&&id=<?php echo $row["shop_id"]; ?>" onclick="return deleteConfirm()"><img src='./image/delete.png' border='0' width="30" height="30" /></a></td>
+            <td align='center' class='cotNutChucNang'><a href="?page=addtocart&&function=del&&id=<?php echo $row["shop_id"]; ?>" onclick="return deleteConfirm()"><img src='./image/delete.png' border='0' width="30" height="30" /></a></td>
           </tr>
         <?php
           $No++;
