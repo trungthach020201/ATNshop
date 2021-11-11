@@ -58,9 +58,9 @@
                         include_once("connection.php");
                         $result = pg_query($conn, "SELECT * FROM public.product where idcate='G001'");
 
-                        if (!$result) { //add this check.
-                            die('Invalid query: ' . pg_error($conn));
-                        }
+                        // if (!$result) { //add this check.
+                        //     die('Invalid query: ' . pg_error($conn));
+                        // }
 
 
                         while ($row = pg_fetch_array($result, NULL, PGSQL_ASSOC)) {
@@ -90,9 +90,9 @@
                         include_once("connection.php");
                         $result = pg_query($conn, "SELECT * FROM public.product where idcate='U001'");
 
-                        if (!$result) { //add this check.
-                            die('Invalid query: ' . pg_error($conn));
-                        }
+                        // if (!$result) { //add this check.
+                        //     die('Invalid query: ' . pg_error($conn));
+                        // }
 
 
                         while ($row = pg_fetch_array($result, NULL, PGSQL_ASSOC)) {
