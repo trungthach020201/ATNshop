@@ -1,87 +1,85 @@
-<link rel="stylesheet" href="csscart.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<?php
-    if(!isset($_SESSION['us'])){
-        echo '<script>alert("You must login to access Manage profit");</script>';
-        echo '<meta http-equiv="Refresh" content="0;URL=?page=login">';
-        }
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <?php
+    if (!isset($_SESSION['us']) or $_SESSION ['admin']==0)//==0
+    {
+      echo "<script>alert('You are not adminstrator')</script>";
+      echo '<meta http-equiv="refresh" content="0;URL=index.php"/>';
+    }
     else
     {
-?>
+    ?>
 
+  <script language="javascript">
+    function deleteConfirm() {
+      if (confirm("Are you sure delete")) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  </script>
+  <?php
+  include_once("conection.php");
+  if (isset($_GET["function"]) == "del") {
+    if (isset($_GET["id"])) {
+      $id = $_GET["id"];
+      pg_query($conn, "DELETE FROM public.shops WHERE shop_id='$id'");
+    }
+  }
+  ?>
 
-<div class="container" style="width: 900px;"> 
- <table id="cart" class="table table-hover table-condensed"> 
-  <thead> 
-   <tr> 
-    <th style="width:20%">Shop</th> 
+  <form name="frm" method="post" action="">
+    <h1>Shop Management</h1>
+    <p>
+      <img src="./tree/img/add.png" alt="" width="16" height="16" border="0" />
+      <a href="?page=add_shop"> Add new </a>
+    </p>
+    <table id="tableproduct" class="table table-striped table-bordered" cellspacing="0" width="100%">
+      <thead>
+        <tr>
+          <th><strong>No.</strong></th>
+          <th><strong>Shop ID</strong></th>
+          <th><strong>Shop Name</strong></th>
+          <th><strong>Address</strong></th>
+          <th><strong>Phone</strong></th>
+          <th><strong>Edit</strong></th>
+          <th><strong>Delete</strong></th>
+        </tr>
+      </thead>
 
-    <th style="width:10%" class="text-center">Total revenue</th>
-   </tr> 
-  </thead> 
-  <tbody>
-      <tr> 
-        <td data-th="Product"> 
-            <div class="row"> 
-            <div class="col-sm-10"> 
-            <h4 class="nomargin">ATN CanTho Shop</h4> 
-            <p>360, 30/4 street, Ninh Kieu, Can Tho</p> 
-            </div> 
-            </div> 
-        </td> 
-        <td data-th="Subtotal" class="text-center">200.000.000 VND</td> 
-    </tr> 
-
-
-    <tr> 
-        <td data-th="Product"> 
-            <div class="row"> 
-            <div class="col-sm-10"> 
-            <h4 class="nomargin">ATN HoChiMinh Shop</h4> 
-            <p>360, Nguyen Van Linh street, Phu Nhuan , HCM city</p> 
-            </div> 
-            </div> 
-        </td> 
-        <td data-th="Subtotal" class="text-center">500.000.000 VND</td> 
-    </tr> 
-
-    <tr> 
-        <td data-th="Product"> 
-            <div class="row"> 
-            <div class="col-sm-10"> 
-            <h4 class="nomargin">ATN HaNoi Shop</h4> 
-            <p>360B, 30/4 street, Hoang Kiem, Hanoi</p> 
-            </div> 
-            </div> 
-        </td> 
-        <td data-th="Subtotal" class="text-center">300.000.000 VND</td> 
-    </tr> 
-
-        <tr> 
-        <td data-th="Product"> 
-            <div class="row"> 
-            <div class="col-sm-10"> 
-            <h4 class="nomargin">ATN DaNang Shop</h4> 
-            <p>360A, De Tham  street, Son Tra, DaNang</p> 
-            </div> 
-            </div> 
-        </td> 
-        <td data-th="Subtotal" class="text-center">100.000.000 VND</td> 
-    </tr> 
-  
-  </tbody>
-  <tfoot>  
-   <tr> 
-    <td><a href="?page=index" class="btn btn-warning"><i class="fa fa-angle-left"></i> Back</a>
-    </td> 
-    <td class="hidden-xs text-center"><strong>Total 11.000.000.000 VND</strong>
-    </td> 
-    <td><a href="#" class="btn btn-success btn-block">Ok <i class="fa fa-angle-right"></i></a>
-    </td> 
-   </tr> 
-  </tfoot> 
- </table>
-</div>
+      <tbody>
+        <?php
+        include_once("conection.php");
+        $No = 1;
+        $result = pg_query($conn, "SELECT shop_id, shop_name ,address, phone FROM public.shops");
+        while ($row = pg_fetch_assoc($result)) {
+        ?>
+          <tr>
+            <td><?php echo $No; ?></td>
+            <td><?php echo $row["shop_id"]; ?></td>
+            <td><?php echo $row["shop_name"]; ?></td>
+            <td><?php echo $row["address"]; ?></td>
+            <td><?php echo $row["phone"]; ?></td>
+            <td align='center' class='cotNutChucNang'><a href="?page=update_shop&&id=<?php echo $row["shop_id"]; ?>"><img src='./tree/img/edit.png' border='0' width="30" height="30" /></a></td>
+            <td align='center' class='cotNutChucNang'><a href="?page=shops_management&&function=del&&id=<?php echo $row["shop_id"]; ?>" onclick="return deleteConfirm()"><img src='./tree/img/delete.png' border='0' width="30" height="30" /></a></td>
+          </tr>
+        <?php
+          $No++;
+        }
+        ?>
+      </tbody>
+    </table>
+  </form>
 <?php
     }
-    ?>
+?>
+  <!--footer-->
+</body>
+</html>

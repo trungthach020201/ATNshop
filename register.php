@@ -62,7 +62,7 @@
             pg_query($conn,"INSERT INTO public.account(username,password,cusname,gender,address,telephone,
             email,cusdate,cusmonth,cusyear,ssn,activecode,state)
             VALUE('$us','$pass','$fullname','$sex','$address','$tel','$email',
-            $date,$month,$year,'','',0)"); // or die(pg_error($conn));
+            $date,$month,$year,'','',0)"); //or die(pg_error($conn));
             echo '<meta http-equiv="refresh" content="0;URL=?page=login"/>';
         }
         else{
