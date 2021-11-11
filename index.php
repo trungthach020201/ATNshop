@@ -156,7 +156,7 @@ if(isset($_GET['page']))
     elseif($page=="updateprod"){
         include_once("updateprod.php");
     }
-    elseif($page=="addtocart"){
+    elseif($page=="shops_management"){
         include_once("addtocart.php");
     }
     elseif($page=="addshop"){
