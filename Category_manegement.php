@@ -32,7 +32,7 @@
             if (!isset($_SESSION['admin'])or $_SESSION['admin']==0)
             {
             echo "<script>alert('You are not adminstrator')</script>";
-            echo '<meta http-equiv="refresh" content="0;URL=?page=index"/>';
+            echo '<meta http-equiv="refresh" content="0;URL=?page=login"/>';
             }
             else
             {
