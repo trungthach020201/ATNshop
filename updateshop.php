@@ -13,7 +13,7 @@
   <link rel="shortcut icon" href="./tree/img/logo1.png">
 
 
-  <title>Dery</title>
+  <title>ATNshop</title>
 </head>
 
 <body>
