@@ -64,12 +64,12 @@
                </div> -->
                <div id="sear">
                     <li class="nav-item">
-                    <a class="nav-link" href="?page=cate">Manegement category</a>
+                    <a class="nav-link" href="?page=cate">Manege category</a>
                     </li>
                 </div>
                 <div id="sear">
                     <li class="nav-item">
-                    <a class="nav-link" href="?page=addtocart">Profit Report</a>
+                    <a class="nav-link" href="?page=addtocart">Manage Shop</a>
                     </li>
                </div>
         <div>
@@ -158,6 +158,12 @@ if(isset($_GET['page']))
     }
     elseif($page=="addtocart"){
         include_once("addtocart.php");
+    }
+    elseif($page=="addshop"){
+        include_once("addshop.php");
+    }
+    elseif($page=="updateshop"){
+        include_once("updateshop.php");
     }
 }
 else{
