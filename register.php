@@ -52,10 +52,10 @@
     } else {
       include_once("conection.php");
       $pass = md5($pass1);
-      $sq = "SELECT * FROM public.account WHERE Username='$us' OR email='$email'";
+      $sq = "SELECT * FROM public.account WHERE username='$us' OR email='$email'";
       $res = pg_query($conn, $sq);
       if (pg_num_rows($res) == 0) {
-        pg_query($conn, "INSERT INTO public.account (Username, Password, CustName, gender, Address, telephone, email, CusDate, CusMonth, CusYear, ActiveCode, state)
+        pg_query($conn, "INSERT INTO public.account (username, password, custname, gender, address, telephone, email, cusdate, cusmonth, cusyear, activecode, state)
             VALUES('$us', '$pass', '$fullname', '$sex', '$address', '$tel', '$email', '$date', 
             '$month', '$year', '', 0)");// or die(pg_error($conn));
         echo '<meta http-equiv="refresh" content="0;URL=?page=login"/>';
@@ -170,7 +170,7 @@
       <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
           <input type="submit" class="btn btn-primary" name="btnRegister" id="btnRegister" value="Register" />
-
+          <input type="submit" class="btn btn-primary" name="btnCancel" id="btnCancel" value="Cancel" />
         </div>
       </div>
     </form>
