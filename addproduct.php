@@ -19,7 +19,7 @@
 	include_once("connection.php");
 	function blind_Category_List($conn)
 	{
-		$sqlstring = "SELECT idcate, namecate from public.category";
+		$sqlstring = "SELECT idcate, namecate from category";
 		$result = pg_query($conn, $sqlstring);
 		echo "<select name='CategoryList' class='form-control'>
 		<option value='0'>Choose category</option>";
@@ -30,9 +30,9 @@
 	}
 	function blind_Shop_List($conn)
 	{
-		$sqlstring = "SELECT shop_id, shop_name from public.shop";
+		$sqlstring = "SELECT shop_id, shop_name from shops";
 		$result = pg_query($conn, $sqlstring);
-		echo "<select name='ShopList' class='form-control'>
+		echo "<select name='CategoryList' class='form-control'>
 		<option value='0'>Choose Shop</option>";
 		while ($row = pg_fetch_array($result,NULL ,PGSQL_ASSOC)) {
 			echo "<option value = '" . $row['shop_id'] . "'>" . $row['shop_name'] . "</option>";
@@ -94,7 +94,16 @@
 							<div class="col-sm-10">
 							      <?php blind_Shop_List($conn);?>
 							</div>
+        </div>
+		 
+		 <div class="form-group">   
+                    <label for="" class="col-sm-2 control-label">Shop Name(*):  </label>
+							<div class="col-sm-10">
+							      <?php blind_Category_List($conn);?>
+							</div>
                 </div>
+
+				
 		   
                         <div class="form-group">
 					<label for="txtTen" class="col-sm-2 control-label">Product ID(*):  </label>
