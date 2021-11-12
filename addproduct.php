@@ -97,7 +97,7 @@
         </div>
 		 
 		 <div class="form-group">   
-                    <label for="" class="col-sm-2 control-label">Shop Name(*):  </label>
+                    <label for="" class="col-sm-2 control-label">Category Name(*):  </label>
 							<div class="col-sm-10">
 							      <?php blind_Category_List($conn);?>
 							</div>
