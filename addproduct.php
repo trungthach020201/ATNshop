@@ -19,7 +19,7 @@
 	include_once("connection.php");
 	function blind_Category_List($conn)
 	{
-		$sqlstring = "SELECT idcate, namecate from category";
+		$sqlstring = "SELECT idcate, namecate from public.category";
 		$result = pg_query($conn, $sqlstring);
 		echo "<select name='CategoryList' class='form-control'>
 		<option value='0'>Choose category</option>";
@@ -28,6 +28,18 @@
 		}
 		echo "</select>";
 	}
+	function blind_Shop_List($conn)
+	{
+		$sqlstring = "SELECT shop_id, shop_name from public.shop";
+		$result = pg_query($conn, $sqlstring);
+		echo "<select name='ShopList' class='form-control'>
+		<option value='0'>Choose Shop</option>";
+		while ($row = pg_fetch_array($result,NULL ,PGSQL_ASSOC)) {
+			echo "<option value = '" . $row['shop_id'] . "'>" . $row['shop_name'] . "</option>";
+		}
+		echo "</select>";
+	}
+
 	if (isset($_POST["btnAdd"])) {
 		$id = $_POST["txtID"];
 		$proname = $_POST["txtName"];
@@ -47,6 +59,7 @@
 		if (!is_numeric($price) || ($price <= 0)) {
 			$err .= "<li>enter price, Please</li>";
 		}
+		
 		if ($err != "") {
 			echo "<ul>$err</ul>";
 		} else {
@@ -76,12 +89,13 @@
 <div class="container">
 	<h2>Adding new Product</h2>
 	 	<form id="frmProduct" name="frmProduct" method="post" enctype="multipart/form-data" action="" class="form-horizontal" role="form">
-             <div class="form-group">   
-                    <label for="" class="col-sm-2 control-label">Product category(*):  </label>
+		 <div class="form-group">   
+                    <label for="" class="col-sm-2 control-label">Shop Name(*):  </label>
 							<div class="col-sm-10">
-							      <?php blind_Category_List($conn);?>
+							      <?php blind_Shop_List($conn);?>
 							</div>
-                </div>  
+                </div>
+		   
                         <div class="form-group">
 					<label for="txtTen" class="col-sm-2 control-label">Product ID(*):  </label>
 							<div class="col-sm-10">
